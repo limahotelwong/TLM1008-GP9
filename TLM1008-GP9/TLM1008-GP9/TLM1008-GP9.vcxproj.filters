@@ -21,7 +21,7 @@
     <ClCompile Include="Drone.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="pseudocode.cpp">
+    <ClCompile Include="PSEUDOCODES.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
