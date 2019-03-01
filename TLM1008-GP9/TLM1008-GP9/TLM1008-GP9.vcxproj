@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClCompile Include="Drone.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="pseudo.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Drone.h" />
