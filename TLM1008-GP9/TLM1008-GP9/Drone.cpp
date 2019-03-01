@@ -14,16 +14,7 @@ Drone::Drone()
 {
 }
 
-Drone::Drone(string dModel)
-{
-	Drone::droneModel = dModel;
-}
 
 Drone::~Drone()
 {
-}
-
-int GetDroneName(int)
-{
-	return 0;
 }
