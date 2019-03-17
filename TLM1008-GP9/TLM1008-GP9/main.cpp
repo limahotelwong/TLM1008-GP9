@@ -1,37 +1,62 @@
+#include "Schedule.h"
+
 #include <iostream>
+#include <string>
 
-void main(void)
+using namespace std;
+
+int main(void)
 {
-	char option;
-	//if you see this it means the clone was successful
-	//branch test
+	Schedule sch;
 
-	switch (option)
-	{
-	case 1: OptionOne();
-		break;
-	case 2: OptionTwo();
-		break;
-	case 3:
-		break;
-	case 4:
-		break;
-	case 5:
-		break;
-	case 6:
-		break;
-	case 7:
-		break;
-	case 8:
-		break;
-	case 9:
-		break;
-	default:
-	}
+	unsigned int option;
+
+	cout << "Wakanda Technologies and Logistics\n\n";
+	cout << "1. View Schedules\n";
+	cout << "2. Insert Schedule Entry\n";
+	cout << "3. Delete Schedule Entry\n";
+	cout << "4. View Drones\n";
+	cout << "5. Add Drones\n";
+	cout << "6. Delete Drones\n";
+	cout << "\nSelect an option: ";
+	cin >> option;
+
+
+		switch (option)
+		{
+		case 1:
+			unsigned int sort;
+			cout << "1 - Sort by Location, 2 - Sort by Destination, 3 - Sort by Deadline\nEnter Option: ";
+			cin >> sort;
+			sch.displayContent(sort);
+			break;
+		case 2:
+			sch.insertEntry();
+			break;
+		case 3:
+			sch.deleteEntry();
+			break;
+		case 4:cout << "4";
+			break;
+		case 5:cout << "5";
+			break;
+		case 6:cout << "6";
+			break;
+		case 7:cout << "7";
+			break;
+		case 8:cout << "8";
+			break;
+		case 9:cout << "9";
+			break;
+		default: cout << "default";
+		}
+	return 0;
 }
 
-void OptionOne();
-void OptionTwo();
+
+
+//void OptionOne();
+//void OptionTwo();
 
 
 /*
@@ -60,15 +85,5 @@ Fleet
 
 //sample method
 
-void Schedule(int argument) //argument = choice number in menu
-{
-	switch (argument)
-	{
-	case 1:
-		break;
-	case 2:
-		break;
-	default:
-	}
-}
+//void Schedule(int argument); //argument = choice number in menu
 

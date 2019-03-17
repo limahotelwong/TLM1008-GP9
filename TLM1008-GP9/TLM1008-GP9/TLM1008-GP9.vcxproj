@@ -142,9 +142,11 @@
     <ClCompile Include="Drone.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="pseudo.cpp" />
+    <ClCompile Include="Schedule.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Drone.h" />
+    <ClInclude Include="Schedule.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
