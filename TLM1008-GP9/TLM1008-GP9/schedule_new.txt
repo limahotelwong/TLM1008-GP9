@@ -31,7 +31,7 @@ Parcel30,StopC,1700
 Parcel31,StopD,0900
 Parcel32,StopD,0930
 Parcel33,StopD,1000
-Parcel34,StopD,1000
+Parcel34,StopD,1300
 Parcel35,StopD,1330
 Parcel36,StopD,1400
 Parcel37,StopD,1500

@@ -34,8 +34,6 @@ public:
 //	bool compareFunction(string, string);
 };
 
-
-
 //int n = 10;
 //const int x = 3;
 //string* a = new string[n][x];

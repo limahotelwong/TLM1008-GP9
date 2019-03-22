@@ -14,10 +14,11 @@ int main(void)
 	cout << "Wakanda Technologies and Logistics\n\n";
 	cout << "1. View Schedules\n";
 	cout << "2. Insert Schedule Entry\n";
-	cout << "3. Delete Schedule Entry\n";
-	cout << "4. View Drones\n";
-	cout << "5. Add Drones\n";
-	cout << "6. Delete Drones\n";
+	cout << "3. Modify Schedule Entry\n";
+	cout << "4. Delete Schedule Entry\n";
+	cout << "5. View Drones\n";
+	cout << "6. Add Drones\n";
+	cout << "7. Delete Drones\n";
 	cout << "\nSelect an option: ";
 	cin >> option;
 
@@ -26,17 +27,22 @@ int main(void)
 		{
 		case 1:
 			unsigned int sort;
-			cout << "1 - Sort by Location, 2 - Sort by Destination, 3 - Sort by Deadline\nEnter Option: ";
+			cout << "1 - Sort by Name, 2 - Sort by Destination, 3 - Sort by Deadline\nEnter Option: ";
 			cin >> sort;
 			sch.displayContent(sort);
+			main();
 			break;
 		case 2:
 			sch.insertEntry();
+			main();
 			break;
 		case 3:
-			sch.deleteEntry();
+			sch.editEntry();
+			main();
 			break;
-		case 4:cout << "4";
+		case 4:
+			sch.deleteEntry();
+			main();
 			break;
 		case 5:cout << "5";
 			break;
@@ -49,9 +55,8 @@ int main(void)
 		case 9:cout << "9";
 			break;
 		default: cout << "default";
-		}
-	return 0;
-}
+		}	
+	}
 
 
 

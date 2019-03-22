@@ -52,18 +52,18 @@ void Schedule::displayContent(unsigned int type)
 			sArr[i] = rName[i] + "\t" + rDest[i] + "\t" + rTime[i] + "\n";
 		}
 	}
-		
+
 	vector<string> myVector(sArr, sArr + 999);
 
 	std::sort(myVector.begin(), myVector.end());
-	std::copy(myVector.begin(), myVector.end(), ostream_iterator<string>(cout, ""));	
+	std::copy(myVector.begin(), myVector.end(), ostream_iterator<string>(cout, ""));
 }
 
 void Schedule::insertEntry()
 {
 	string name;
 	string loc;
-//	int date;
+	//	int date;
 	int time;
 	cout << "Enter Package Name, Location and Deadline in (YYYYMMDD)\n\n";
 	cout << "Package Name: ";
@@ -92,7 +92,7 @@ void Schedule::deleteEntry()
 	readFile();
 
 	ofstream new_file;
-	new_file.open("schedule.txt");
+	new_file.open("schedule_new.txt");
 
 	if (new_file.is_open())
 		cout << "Error encountered, please try again." << endl;
@@ -100,8 +100,8 @@ void Schedule::deleteEntry()
 	cout << "Name:\t\tDest:\tTime:" << endl;	//print table
 	for (int i = 0; i < n; i++)
 	{
-		dArr[i] = rName[i] + "\t" + rDest[i] + "\t" + rTime[i] + "\n";		
-		cout << i+1 << ": " << dArr[i];
+		dArr[i] = rName[i] + "\t" + rDest[i] + "\t" + rTime[i] + "\n";
+		cout << i + 1 << ": " << dArr[i];
 	}
 
 	cout << "\n\nSelect entry to delete: ";
@@ -111,21 +111,84 @@ void Schedule::deleteEntry()
 	{
 		rName[i] = rName[i + 1];
 		rDest[i] = rDest[i + 1];
-		rTime[i] = rTime[i + 1];	
+		rTime[i] = rTime[i + 1];
 	}
-	
-	for (int i = 0; i < n-1; i++)
+
+	for (int i = 0; i < n - 1; i++)
 	{
 		if (i > 0)	//print next line after line0
 			new_file << "\n";
 
-		new_file << rName[i] << "," << rDest[i] << "," << rTime[i];		
+		new_file << rName[i] << "," << rDest[i] << "," << rTime[i];
 	}
 
 	cout << "Entry deleted successfully" << endl;
+	std::rename("schedule_new.txt", "schedule.txt");
 
 	new_file.close();
 }
+
+void Schedule::editEntry()
+{
+//	string newName, newDest, newTime;
+	unsigned int del, edit;
+	readFile();
+
+	ofstream new_file;
+	new_file.open("schedule_new.txt");
+
+	if (new_file.is_open())
+		cout << "Error encountered, please try again." << endl;
+
+	cout << "Name:\t\tDest:\tTime:" << endl;	//print table
+	for (int i = 0; i < n; i++)
+	{
+		dArr[i] = rName[i] + "\t" + rDest[i] + "\t" + rTime[i] + "\n";
+		cout << i + 1 << ": " << dArr[i];
+	}
+
+	cout << "\n\nSelect entry to modify: ";
+	cin >> del;
+
+//	newName = rName[del];
+//	newDest = rDest[del];
+//	newTime = rTime[del];
+
+	cout << "Select field to change: 1 - Name, 2 - Dest, 3 - Time";
+	cin >> edit;
+
+	switch (edit)
+	{
+	case 1:
+		cout << "Enter new Name: ";
+		cin >> rName[del];
+		break;
+	case 2:
+		cout << "Enter new Dest: ";
+		cin >> rDest[del];
+		break;
+	case 3:
+		cout << "Enter new Time: ";
+		cin >> rTime[del];
+		break;
+	default:
+		cout << "Enter an appropriate option";
+	}
+
+	for (int i = 0; i < n; i++)
+	{
+		if (i > 0)	//print next line after line0
+			new_file << "\n";
+
+		new_file << rName[i] << "," << rDest[i] << "," << rTime[i];
+	}
+
+	cout << "Entry modified successfully" << endl;
+	std::rename("schedule_new.txt", "schedule.txt");
+
+	new_file.close();
+}
+
 
 void readFile()
 {
@@ -135,13 +198,14 @@ void readFile()
 		cout << "Error reading file" << endl;
 
 	schedule_file.open("schedule.txt");
+	std::rename("schedule.txt", "schedule_new.txt");
 
 	while (!schedule_file.eof())
-	{		
+	{
 		getline(schedule_file, rName[n], ',');
 		getline(schedule_file, rDest[n], ',');
 		getline(schedule_file, rTime[n]);
-		n++;		
+		n++;
 	}
 	cout << n << endl;
 
