@@ -27,12 +27,18 @@
     <ClCompile Include="Schedule.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Parcel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Drone.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Schedule.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Parcel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
