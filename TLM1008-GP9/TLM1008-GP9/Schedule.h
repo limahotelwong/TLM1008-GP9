@@ -1,4 +1,26 @@
-#include <string>
+/*#ifndef SCHEDULE_H
+#define SCHEDULE_H
+
+#pragma once
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class Schedule
+{
+public:
+	void scheduleDeadline(vector<ADD>&, vector<Parcel>&, vector<string>&);
+	void scheduleMinimumADD(vector<ADD>&, vector<Parcel>&, vector<string>&);
+};
+
+#endif*/
+
+
+//--------------------------------------------------
+
+
+/*#include <string>
 #include <iostream>
 #include <istream>
 #include <ostream>
@@ -38,4 +60,4 @@ public:
 
 //int n = 10;
 //const int x = 3;
-//string* a = new string[n][x];
+//string* a = new string[n][x];*/
