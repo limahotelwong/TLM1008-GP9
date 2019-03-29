@@ -8,6 +8,7 @@ using namespace std;
 #pragma once
 class Drone
 {
+	friend 
 private:
 	int droneId;
 	string droneName, droneModel;
