@@ -1,9 +1,10 @@
 //#ifndef PARCEL_CPP
 #define PARCEL_CPP
 
-#include "pch.h"
+//#include "pch.h"
 #include "Parcel.h"
 #include <iostream>
+#include <stdio.h>
 using namespace std;
 
 void readParcelFile();
@@ -21,9 +22,11 @@ Parcel::~Parcel()
 {
 
 }
-
+int  z = 0;
 void Parcel::displayParcelContent(unsigned int type)
 {
+	vector<string> myVector(pArray, pArray + 999);
+	//myVector.clear();
 	switch (type)
 	{
 	case 1:
@@ -44,8 +47,14 @@ void Parcel::displayParcelContent(unsigned int type)
 	default:
 		cout << endl << "Error encountered. Please try again." << endl;		//in the case of a wrong input
 	}
+	//myVector.clear();
 
-	readParcelFile();
+	while (z == 0)
+	{
+		z++;
+		readParcelFile();
+
+	}
 
 	for (int i = 0; i < parcelValue; i++)
 	{
@@ -65,13 +74,14 @@ void Parcel::displayParcelContent(unsigned int type)
 
 		default:
 			cout << "";		//printing blank as it is an error
+
 		}
 	}
 
-	vector<string> myVector(pArray, pArray + 999);
-
+	//	myVector.clear();
 	sort(myVector.begin(), myVector.end());
 	copy(myVector.begin(), myVector.end(), ostream_iterator<string>(cout, ""));
+	//.clear();
 }
 
 void Parcel::insertParcelEntry()
@@ -221,4 +231,5 @@ void readParcelFile()
 	}
 
 	schedule_file.close();
+
 }
