@@ -1,4 +1,81 @@
-﻿#include "Schedule.h"
+﻿//#ifndef SCHEDULE_CPP
+#define SCHEDULE_CPP
+
+#include "pch.h"
+#include "Schedule.h"
+#include <iostream>
+using namespace std;
+
+/*void Schedule::scheduleDeadline(vector<ADD>& x, vector<Parcel>& y, vector<string>& z)
+{
+	for (int i = 0; i < y.size(); i++)
+	{
+		bool k = false;
+
+		for (int j = 0; j < x.size(); j++)
+		{
+			if (x[j].getdestination() != y[i].getStop())
+			{
+				continue;
+			}
+
+			if (x[j].calculate() < (y[i].calculate() - 30) || x[j].calculate() > y[i].calculate())
+			{
+				continue;
+			}
+
+			if (x[j].getcount() > x[j].getcapacity())
+			{
+				continue;
+			}
+
+			x[j].setpack(y[i].getName());
+			k = true;
+			break;
+		}
+
+		if (k == false)
+		{
+			z.push_back(y[i].getName());
+		}
+	}
+}
+
+void Schedule::scheduleMinimumADD(vector<ADD>& x, vector<Parcel>& y, vector<string>& z)
+{
+	for (int i = 0; i < y.size(); i++)
+	{
+		bool k = false;
+
+		for (int j = 0; j < x.size(); j++)
+		{
+			if (x[j].getdestination() != y[i].getStop())
+			{
+				continue;
+			}
+
+			if (x[j].getcount() > x[j].getcapacity())
+			{
+				continue;
+			}
+
+			x[j].setpack(y[i].getName());
+			k = true;
+			break;
+		}
+
+		if (k == false)
+		{
+			z.push_back(y[i].getName());
+		}
+	}
+}*/
+
+
+//--------------------------------------------------
+
+
+/*#include "Schedule.h"
 
 using namespace std;
 
@@ -210,4 +287,4 @@ void readFile()
 	cout << n << endl;
 
 	schedule_file.close();
-}
+}*/

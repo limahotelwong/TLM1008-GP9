@@ -141,11 +141,13 @@
   <ItemGroup>
     <ClCompile Include="Drone.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Parcel.cpp" />
     <ClCompile Include="pseudo.cpp" />
     <ClCompile Include="Schedule.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Drone.h" />
+    <ClInclude Include="Parcel.h" />
     <ClInclude Include="Schedule.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
