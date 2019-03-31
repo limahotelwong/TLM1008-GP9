@@ -79,3 +79,32 @@ public:
 };
 
 */
+//anything
+/*#ifndef DRONE_H
+#define DRONE_H
+
+#pragma once
+
+#include <iostream>
+using namespace std;
+
+class Drone
+{
+private:
+	string droneName;
+	int droneCapacity;
+	string droneDestination;
+	int droneDeadline;
+	int parcelCount;
+public:
+	Drone(string, int, string, int);
+	string getDroneName();
+	int getDroneCapacity();
+	string getDroneDestination();
+	int getDroneDeadline();
+	int getParcelCount();
+	void parcelCounter(string);
+};
+
+#endif
+*/

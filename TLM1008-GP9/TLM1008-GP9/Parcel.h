@@ -29,3 +29,28 @@ public:
 };
 
 #endif
+
+//anything 
+/*#ifndef PARCEL_H
+#define PARCEL_H
+
+#pragma once
+
+#include <iostream>
+using namespace std;
+
+class Parcel
+{
+private:
+	string parcelName;
+	string parcelDestination;
+	int parcelDeadline;
+public:
+	Parcel(string, string, int);
+	string getParcelName();
+	string getParcelDestination();
+	int getParcelDeadline();
+};
+
+#endif
+*/

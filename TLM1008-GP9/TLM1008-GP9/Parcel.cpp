@@ -233,3 +233,35 @@ void readParcelFile()
 	schedule_file.close();
 
 }
+
+/*//#ifndef PARCEL_CPP anything 
+#define PARCEL_CPP
+
+#include "pch.h"
+#include <string>
+#include <vector>
+#include "Parcel.h"
+
+Parcel::Parcel(string pName, string pDestination, int pDeadline)
+{
+	parcelName = pName;
+	parcelDestination = pDestination;
+	parcelDeadline = pDeadline;
+}
+
+string Parcel::getParcelName()
+{
+	return parcelName;
+}
+
+string Parcel::getParcelDestination()
+{
+	return parcelDestination;
+}
+
+int Parcel::getParcelDeadline()
+{
+	return parcelDeadline;
+}
+
+//#endif*/
