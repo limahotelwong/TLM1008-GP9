@@ -1,12 +1,11 @@
-﻿//#ifndef SCHEDULE_CPP
+﻿#ifndef SCHEDULE_CPP
 #define SCHEDULE_CPP
 
-#include "pch.h"
 #include "Schedule.h"
-#include <iostream>
-using namespace std;
 
-/*void Schedule::scheduleDeadline(vector<ADD>& x, vector<Parcel>& y, vector<string>& z)
+using namespace std;
+/*
+void Schedule::scheduleDeadline(vector<ADD>& x, vector<Parcel>& y, vector<string>& z)
 {
 	for (int i = 0; i < y.size(); i++)
 	{
@@ -69,7 +68,9 @@ void Schedule::scheduleMinimumADD(vector<ADD>& x, vector<Parcel>& y, vector<stri
 			z.push_back(y[i].getName());
 		}
 	}
-}*/
+}
+*/
+#endif
 
 
 //--------------------------------------------------

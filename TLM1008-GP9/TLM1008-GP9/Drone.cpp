@@ -1,7 +1,55 @@
-//#ifndef DRONE_CPP
+#ifndef DRONE_CPP
 #define DRONE_CPP
 
-#include "pch.h"
+#include "Drone.h"
+
+using namespace std;
+
+Drone::Drone(string dName, int dCapacity, string dDestination, int dDeadline)
+{
+	droneName = dName;
+	droneCapacity = dCapacity;
+	droneDestination = dDestination;
+	droneDeadline = dDeadline;
+}
+
+string Drone::getDroneName()
+{
+	return droneName;
+}
+
+int Drone::getDroneCapacity()
+{
+	return droneCapacity;
+}
+
+string Drone::getDroneDestination()
+{
+	return droneDestination;
+}
+
+int Drone::getDroneDeadline()
+{
+	return droneDeadline;
+}
+
+int Drone::getParcelCount()
+{
+	return parcelCount;
+}
+
+void Drone::parcelCounter(string pParcel)
+{
+	parcelCount = 0;
+
+	parcelCount++;
+}
+
+#endif
+
+
+/*
+//#include "pch.h"
 #include "Drone.h"
 using namespace std;
 
@@ -314,9 +362,9 @@ void Drone::readDroneFile()
 
 
 //--------------------------------------------------
-
-
-/*#define MAX_BATT 100
+*/
+/*
+#define MAX_BATT 100
 #define MAX_RANGE 5000
 
 #include <iostream>
@@ -337,14 +385,12 @@ Drone::~Drone()
 {
 }
 */
-
-
-
-/*//////
+/*
+//////
 //#ifndef DRONE_CPP anything 
 #define DRONE_CPP
 
-#include "pch.h"
+//#include "pch.h"
 #include "Drone.h"
 
 Drone::Drone(string dName, int dCapacity, string dDestination, int dDeadline)
@@ -387,4 +433,5 @@ void Drone::parcelCounter(string pParcel)
 	parcelCount++;
 }
 
-//#endif */
+#endif 
+*/

@@ -1,20 +1,41 @@
-/*#ifndef SCHEDULE_H
+#ifndef SCHEDULE_H
 #define SCHEDULE_H
 
 #pragma once
 
 #include <iostream>
+#include <istream>
+#include <ostream>
+#include <fstream>
+#include <algorithm>
+#include <array>
+#include <cstdio>
+#include <filesystem>
+#include <functional>
+#include <string>
 #include <vector>
+#include <stdio.h>
+
 using namespace std;
 
 class Schedule
 {
 public:
-	void scheduleDeadline(vector<ADD>&, vector<Parcel>&, vector<string>&);
-	void scheduleMinimumADD(vector<ADD>&, vector<Parcel>&, vector<string>&);
+//	void scheduleDeadline(vector<ADD>&, vector<Parcel>&, vector<string>&);
+//	void scheduleMinimumADD(vector<ADD>&, vector<Parcel>&, vector<string>&);
 };
 
-#endif*/
+#endif
+
+
+
+
+
+
+
+
+
+
 
 
 //--------------------------------------------------
