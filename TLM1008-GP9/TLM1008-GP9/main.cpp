@@ -9,7 +9,7 @@
 #include <functional>
 #include <string>
 #include <vector>
-#include <stdio.h>
+
 
 using namespace std;
 
@@ -282,9 +282,202 @@ int main(void)
 		break;
 
 	case 5:
+		vector<string> notFull{ };
+		vector<string> Full{ };
+		vector<string> totalADD{ };
 
-		break;
+		unsigned int option1;
+		cout << endl;
+		cout << "1. Sorted by Deadline" << endl;
+		cout << "2. Sorted by ADD" << endl;
+		cout << endl;
+		cout << "Please enter your option: " << endl << ">";
+		cin >> option1;
 
+
+		switch (option1)
+		{
+		case 1:
+		{
+			for (int i = 0; i < package.size(); i++)
+			{
+				bool k = false;
+				for (int j = add.size(); j >= 0; j--)
+				{
+					if (add[j - 1].getDroneDestination() != package[i].getParcelDestination())		//stop name much match to continue
+					{
+						continue;
+					}
+
+					if (add[j - 1].getParcelCount() > add[j - 1].getDroneCapacity())		//make sure the capacity doesn't exceed
+					{
+						continue;
+					}
+
+					add[j - 1].parcelCounter(package[i].getParcelName());		//adding 1 to the capacity of the drone
+					scheduleCapacity.push_back(package[i].getParcelName());		//register the parcel name
+					scheduleCapacity.push_back(add[j - 1].getDroneName());		//register the add name
+					k = true;
+					break;
+				}
+
+				if (k == false)
+				{
+					leftoverCapacity.push_back(package[i].getParcelName());
+				}
+			}
+
+			cout << endl;
+
+			// Comparing to check ADD scheduled by capacity is not full starts here. 
+
+			for (int j = 0; j < add.size(); j++) //Total Parcels
+			{
+				for (int k = 0; k < add[j].getDroneCapacity(); k++)
+				{
+					notFull.push_back(add[j].getDroneName()); // (Eg. If ADD01 has max cap of 2, it will push ADD01 twice into vector)
+				}
+			}
+
+			for (int k = 0; k < add.size(); k++) //Total ADD (Eg. ADD00 to ADD40)
+			{
+				totalADD.push_back(add[k].getDroneName()); // Pushing total ADD(s) into 'testing' vector. 
+			}
+
+			for (int i = 0; i < scheduleCapacity.size(); i++)
+			{
+				if (Contains(totalADD, scheduleCapacity.at(i))) // To match and obtain assigned scheduled ADD(s) name(s). 
+				{
+					Full.push_back(scheduleCapacity.at(i)); // To push assigned scheduled ADD(s) name into 'Full' vector. 
+				}
+				else {}
+			}
+
+			vector<string>::iterator lit; //Creating a temporary iterator vector.
+			for (int j = 0; j < (Full.size()); j++)
+			{
+				lit = find(notFull.begin(), notFull.end(), Full.at(j)); // To identify each scheduled element position in Total ADD+CAP list
+				if (lit != notFull.end()) //If element is identified in Total ADD list,
+				{
+					Full.erase(Full.begin() + (j));  //Remove matched element from scheduled vector. 
+					notFull.erase(notFull.begin() + (lit - notFull.begin())); //Remove scheduled vector from total ADD list.
+					--j; //Since an element has been removed, we will return back to previous counter. Else, it will be skipping one element. 
+				}
+				else {}
+			}
+
+			for (auto i = 0; i < notFull.size(); i++)
+			{
+				auto count = 1;
+				auto limit = notFull.size() - 1;
+				while (i < limit  && notFull[i] == notFull[i + 1])
+				{
+					count++;
+					i++;
+				}
+
+				cout << notFull[i] << " is not full with " << count << " capacity left. " << endl;
+			}
+
+			cout << endl;
+			menu();
+			break;
+		}
+		case 2:
+		{
+			for (int i = 0; i < package.size(); i++)
+			{
+				bool k = false;
+				for (int j = 0; j < add.size(); j++)
+				{
+					if (add[j].getDroneDestination() != package[i].getParcelDestination()) //stop name much match to continue
+					{
+						continue;
+					}
+
+					if ((add[j].getDroneDeadline() / 100 * 60 + add[j].getDroneDeadline() % 100) < (package[i].getParcelDeadline() / 100 * 60 + package[j].getParcelDeadline() % 100 - 30) || (add[j].getDroneDeadline() / 100 * 60 + add[j].getDroneDeadline() % 100) > (package[i].getParcelDeadline() / 100 * 60 + package[j].getParcelDeadline() % 100))		//calculate the timing in minutes and must fit in the 30 seconds range to continue
+					{
+						continue;
+					}
+
+					if (add[j].getParcelCount() > add[j].getDroneCapacity()) //make sure the capacity doesn't exceed
+					{
+						continue;
+					}
+
+					add[j].parcelCounter(package[i].getParcelName()); //adding 1 to the capacity of the drone
+					scheduleDeadline.push_back(package[i].getParcelName());	//register the parcel name
+					scheduleDeadline.push_back(add[j].getDroneName()); //register the add name
+					k = true;
+					break;
+				}
+
+				if (k == false)
+				{
+					leftoverDeadline.push_back(package[i].getParcelName());
+				}
+			}
+			cout << endl;
+
+			// Comparing to check ADD scheduled by deadline is not full starts here. 
+
+			for (int j = 0; j < add.size(); j++) //Totalling ADD+CAP
+			{
+				for (int k = 0; k < add[j].getDroneCapacity(); k++)
+				{
+					notFull.push_back(add[j].getDroneName()); // (Eg. If ADD01 has max cap of 2, it will push ADD01 twice into vector)
+				}
+			}
+
+			for (int k = 0; k < add.size(); k++) // Eg. ADD00 to ADD30
+			{
+				totalADD.push_back(add[k].getDroneName()); // Pushing total ADD(s) name(s) into 'testing' vector. 
+			}
+
+			for (int i = 0; i < scheduleDeadline.size(); i++)
+			{
+				if (Contains(totalADD, scheduleDeadline.at(i))) //Comparing match for ADD 
+				{
+					Full.push_back(scheduleDeadline.at(i)); //Totalling Scheduled ADD+CAP
+				}
+				else {}
+			}
+
+			vector<string>::iterator lit; //Creating a temporary iterator vector.
+			for (int j = 0; j < (Full.size()); j++)
+			{
+				lit = find(notFull.begin(), notFull.end(), Full.at(j)); // To identify each scheduled element position in Total ADD+CAP list
+				if (lit != notFull.end()) //If element is identified in Total ADD list,
+				{
+					Full.erase(Full.begin() + j); //Remove matched element from scheduled vector. 
+					notFull.erase(notFull.begin() + (lit - notFull.begin()));  //Remove scheduled vector from total ADD list.
+					--j; //Since an element has been removed, we will return back to previous counter. Else, it will be skipping one element. 
+				}
+				else {
+				}
+			}
+
+			sort(notFull.begin(), notFull.end());
+			for (auto i = 0; i < notFull.size(); i++)
+			{
+				auto count = 1;
+
+				auto limit = notFull.size() - 1;
+				while (i < limit  && notFull[i] == notFull[i + 1])
+				{
+					count++;
+					i++;
+				}
+
+				cout << notFull[i] << " is not full with " << count << " capacity left. " << endl;
+			}
+
+			cout << endl;
+			menu();
+			break;
+		}
+		}}
+		//Case 5 end.
 	case 6:
 		for (int i = 0; i < package.size(); i++)
 		{
