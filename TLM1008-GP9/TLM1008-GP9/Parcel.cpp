@@ -8,17 +8,47 @@ using namespace std;
 void readParcelFile();
 
 int parcelValue = 0;
-string pArray[999], pName[999], pDestination[999], pDeadline[999] = {};
-string pParcelArray[999];
+//string pArray[999], pName[999], pDestination[999], pDeadline[999] = {};
+//string parArray[][4];
 int  z = 0;
+
+Parcel::Parcel()
+{
+	parVect[0] = "0";
+}
 
 Parcel::Parcel(string pName, string pDestination, int pDeadline)
 {
 	parcelName = pName;
-	parcelDestination = pDestination;
-	parcelDeadline = pDeadline;
+	parcelDest = pDestination;
+	parcelDead = pDeadline;
 }
 
+void setParName(int index, string name)
+{
+	
+}
+void setParDest(int index, string dest)
+{
+
+}
+void setParDead(int index, string dead)
+{
+
+}
+
+string getParName(int)
+{
+	return "";
+}
+string getParDest(int)
+{
+	return "";
+}
+string getParDead(int)
+{
+	return "";
+}
 
 string Parcel::getParcelName()
 {
@@ -27,14 +57,16 @@ string Parcel::getParcelName()
 
 string Parcel::getParcelDestination()
 {
-	return parcelDestination;
+	return parcelDest;
 }
 
-int Parcel::getParcelDeadline()
+string Parcel::getParcelDeadline()
 {
-	return parcelDeadline;
+	return (parcelDead);
 }
 
+
+/*
 void Parcel::displayParcelContent(unsigned int type)
 {
 	vector<string> myVector(pArray, pArray + 999);
@@ -243,7 +275,7 @@ void readParcelFile()
 	schedule_file.close();
 
 }
-
+*/
 #endif
 
 

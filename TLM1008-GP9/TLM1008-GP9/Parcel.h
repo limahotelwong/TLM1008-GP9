@@ -22,17 +22,28 @@ class Parcel
 {
 private:
 	string parcelName;
-	string parcelDestination;
+	string parcelDest;
+	string parcelDead;
+	vector<string> parVect;
 	int parcelDeadline;
 public:
+	Parcel();
 	Parcel(string, string, int);
 	string getParcelName();
 	string getParcelDestination();
-	int getParcelDeadline();
+	string getParcelDeadline();
 	void displayParcelContent(unsigned int);
 	void insertParcelEntry();
 	void editParcelEntry();
 	void deleteParcelEntry();
+	
+	void setParName(int, string);
+	void setParDest(int, string);
+	void setParDead(int, string);
+
+	string getParName(int);
+	string getParDest(int);
+	string getParDead(int);
 };
 
 #endif
