@@ -10,7 +10,6 @@
 #include <string>
 #include <vector>
 
-
 using namespace std;
 
 #include "Drone.h"
@@ -18,6 +17,16 @@ using namespace std;
 #include "Schedule.h"
 
 void welcome();
+
+template <typename T> // To match element within vector. Return boolean.
+const bool Contains(vector<T>& Vec, const T& Element)
+{
+	if (find(Vec.begin(), Vec.end(), Element) != Vec.end())
+		return true;
+
+	return false;
+}
+
 
 int main(void)
 {
