@@ -37,7 +37,7 @@ void welcome()
 	cout << "       W           W    A A      K  K     E        N N    N   D     D     A A      N N    N    G              " << endl;
 	cout << "        W    W    W    A   A     KKK      EEEEE    N   N  N   D      D   A   A     N   N  N   G    GGGG       " << endl;
 	cout << "         W  W W  W    A AAA A    K  K     E        N    N N   D     D   A AAA A    N    N N    G      G       " << endl;
-	cout << "          W     W    A       A   K    K   EEEEEE   N      N   DDDDDD   A       A   N      N     GGGGGG        " << endl;
+	cout << "          W     W    A       A   K    K   EEEEEE   N      N   DDDDDD   A       A   N      N     GGGGGG        " << endl << endl;
 
 }
 void menu()
