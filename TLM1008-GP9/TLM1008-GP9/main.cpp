@@ -389,7 +389,7 @@ int main(void)
 			}
 
 			cout << endl;
-			menu();
+			main();
 			break;
 		}
 		case 2:
@@ -482,7 +482,7 @@ int main(void)
 			}
 
 			cout << endl;
-			menu();
+			main();
 			break;
 		}
 		}}
