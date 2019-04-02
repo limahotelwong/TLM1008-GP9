@@ -80,7 +80,8 @@ int main(void)
 	cout << "7. Display final scheduling plan sorted by parcels" << endl;
 	cout << "8. Save scheduling plan" << endl;
 	cout << "9. Add/Delete/Edit ADD" << endl;
-	cout << "10. Add/Delete/Edit parcel" << endl << endl;
+	cout << "10. Add/Delete/Edit parcel" << endl;
+	cout << "11. End Program." << endl << endl;
 
 	cout << "Please enter your option: " << endl << ">";
 	cin >> option;
@@ -852,6 +853,16 @@ int main(void)
 
 		break;
 
+	case 11:
+	{
+		cout << endl;
+		cout << "        BBBBBBB   Y       Y  EEEEEE          BBBBBBB   Y       Y  EEEEEE           " << endl;
+		cout << "        B      B   Y     Y   E               B      B   Y     Y   E                " << endl;
+		cout << "        BBBBBBB      YYY     EEEEE           BBBBBBB      YYY     EEEEE            " << endl;
+		cout << "        B      B      Y      E               B      B      Y      E                " << endl;
+		cout << "        BBBBBBB       Y      EEEEEEE         BBBBBBB       Y      EEEEEE           " << endl;
+	}
+
 	default:
 		cout << endl << "Error encountered. Please enter another option." << endl << endl;
 		main();		//return to main menu
@@ -861,11 +872,13 @@ int main(void)
 
 void welcome()
 {
-	cout << "       __      __        __\n";
-	cout << "      /  \\    /  \\ ____ |  | ____  ____    _____   ____ \n";
-	cout << "      \\   \\/\\/   // __ \\|  |/ ___\\/  _ \\  /     \\ / __ \\\n";
-	cout << "       \\        /|  ___/|  |  \\__(  <_> )|  Y Y  \|  ___/\n";
-	cout << "        \\__/\\__/  \\____\\|__|\\_____>____/ |__|_|__|\\____\\\n";
-	cout << "\n";
+
+	cout << endl;
+	cout << "      W             W    A       K    K   EEEEEE   N      N   DDDDDD       A       N      N     GGGGGG        " << endl;
+	cout << "       W           W    A A      K  K     E        N N    N   D     D     A A      N N    N    G              " << endl;
+	cout << "        W    W    W    A   A     KKK      EEEEE    N   N  N   D      D   A   A     N   N  N   G    GGGG       " << endl;
+	cout << "         W  W W  W    A AAA A    K  K     E        N    N N   D     D   A AAA A    N    N N    G      G       " << endl;
+	cout << "          W     W    A       A   K    K   EEEEEE   N      N   DDDDDD   A       A   N      N     GGGGGG        " << endl;
+
 }
 
