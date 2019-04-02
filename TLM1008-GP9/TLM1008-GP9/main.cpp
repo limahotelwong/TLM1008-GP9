@@ -19,6 +19,10 @@ using namespace std;
 
 void welcome();
 
+bool state = true;
+
+//Parcel parcel;
+
 int main(void)
 {
 	string droneName, droneDestination;		//initialize variables to read files and register into class variables
@@ -62,6 +66,11 @@ int main(void)
 
 	unsigned int option;
 
+	if (state == true)
+	{
+		welcome();
+		state = false;
+	}
 	cout << "1. Display all ADD information" << endl;
 	cout << "2. Display all parcels information" << endl;
 	cout << "3. Schedule all parcels (by Deadline)" << endl;
@@ -76,7 +85,7 @@ int main(void)
 	cout << "Please enter your option: " << endl << ">";
 	cin >> option;
 
-	welcome();
+	
 	switch (option)
 	{
 	case 1:
@@ -148,6 +157,10 @@ int main(void)
 		break;
 
 	case 2:
+
+	//	parcel.displayParcelContent();
+
+		/*
 		unsigned int sortP;
 
 		cout << endl << "Display all Parcel information" << endl;
@@ -199,7 +212,7 @@ int main(void)
 			cout << endl << "Invalid option. Please try again." << endl << endl;
 			main();		//return to main menu
 		}
-
+		*/
 		break;
 
 	case 3:
@@ -654,6 +667,8 @@ int main(void)
 		cout << endl << "Error encountered. Please enter another option." << endl << endl;
 		main();		//return to main menu
 	}
+
+	return 0;
 }
 
 
@@ -667,3 +682,6 @@ void welcome()
 	cout << "\n";
 }
 
+//put readfile in main
+//pass the variables to the class for storage
+//use class to retrieve data
