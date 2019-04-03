@@ -21,8 +21,8 @@ using namespace std;
 class Schedule
 {
 public:
-//	void scheduleDeadline(vector<ADD>&, vector<Parcel>&, vector<string>&);
-//	void scheduleMinimumADD(vector<ADD>&, vector<Parcel>&, vector<string>&);
+	//	void scheduleDeadline(vector<ADD>&, vector<Parcel>&, vector<string>&);
+	//	void scheduleMinimumADD(vector<ADD>&, vector<Parcel>&, vector<string>&);
 };
 
 #endif

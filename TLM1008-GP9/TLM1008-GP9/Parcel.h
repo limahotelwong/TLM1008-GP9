@@ -21,10 +21,10 @@ using namespace std;
 class Parcel
 {
 private:
-	string parcelName;
-	string parcelDest;
-	string parcelDead;
-	vector<string> parVect;
+	string parcelName[999];
+	string parcelDest[999];
+	string parcelDead[999];
+	vector<string> parVect{};
 	int parcelDeadline;
 public:
 	Parcel();

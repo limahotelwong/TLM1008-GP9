@@ -5,8 +5,6 @@
 
 using namespace std;
 
-void readParcelFile();
-
 int parcelValue = 0;
 //string pArray[999], pName[999], pDestination[999], pDeadline[999] = {};
 //string parArray[][4];
@@ -14,55 +12,55 @@ int  z = 0;
 
 Parcel::Parcel()
 {
-	parVect[0] = "0";
+
 }
 
 Parcel::Parcel(string pName, string pDestination, int pDeadline)
 {
-	parcelName = pName;
-	parcelDest = pDestination;
-	parcelDead = pDeadline;
+//	parcelName = pName;
+//	parcelDest = pDestination;
+//	parcelDead = pDeadline;
 }
 
-void setParName(int index, string name)
+void Parcel::setParName(int index, string name)
 {
-	
+	parcelName[index] = name;
 }
-void setParDest(int index, string dest)
+void Parcel::setParDest(int index, string dest)
 {
+	parcelDest[index] = dest;
+}
+void Parcel::setParDead(int index, string dead)
+{
+	parcelDead[index] = dead;
+}
 
-}
-void setParDead(int index, string dead)
+string Parcel::getParName(int i)
 {
-
+	return parcelName[i];
 }
-
-string getParName(int)
+string Parcel::getParDest(int i)
 {
-	return "";
+	return parcelDest[i];
 }
-string getParDest(int)
+string Parcel::getParDead(int i)
 {
-	return "";
-}
-string getParDead(int)
-{
-	return "";
+	return parcelDead[i];
 }
 
 string Parcel::getParcelName()
 {
-	return parcelName;
+	return parcelName[0];
 }
 
 string Parcel::getParcelDestination()
 {
-	return parcelDest;
+	return parcelDest[0];
 }
 
 string Parcel::getParcelDeadline()
 {
-	return (parcelDead);
+	return parcelDead[0];
 }
 
 
