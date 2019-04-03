@@ -37,4 +37,4 @@ Parcel36 StopD 1400
 Parcel37 StopD 1500
 Parcel38 StopD 1700
 Parcel39 StopD 1700
-Parcel88 StopX 2200
+Parcel40 StopD 1800

@@ -6,8 +6,6 @@
 using namespace std;
 
 int parcelValue = 0;
-//string pArray[999], pName[999], pDestination[999], pDeadline[999] = {};
-//string parArray[][4];
 int  z = 0;
 
 Parcel::Parcel()
@@ -35,6 +33,18 @@ void Parcel::setParDead(int index, string dead)
 	parcelDead[index] = dead;
 }
 
+void Parcel::setParcelArray(int index, string name, string dest, string dead, int type)
+{
+	if (type == 1)
+		parcelArr[index] = name + "\t" + dest + "\t" + dead;
+	else if (type == 2)
+		parcelArr[index] = dest + "\t" + name + "\t" + dead;
+	else if (type == 3)
+		parcelArr[index] = dead + "\t" + name + "\t" + dest;
+	else
+		parcelArr[index] = name + "\t" + dest + "\t" + dead;
+}
+
 string Parcel::getParName(int i)
 {
 	return parcelName[i];
@@ -46,6 +56,11 @@ string Parcel::getParDest(int i)
 string Parcel::getParDead(int i)
 {
 	return parcelDead[i];
+}
+
+string * Parcel::getParcelArr(string arr[])
+{
+	return parcelArr;
 }
 
 string Parcel::getParcelName()
@@ -62,6 +77,8 @@ string Parcel::getParcelDeadline()
 {
 	return parcelDead[0];
 }
+
+
 
 
 /*

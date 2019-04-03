@@ -24,6 +24,7 @@ private:
 	string parcelName[999];
 	string parcelDest[999];
 	string parcelDead[999];
+	string parcelArr[999];
 	vector<string> parVect{};
 	int parcelDeadline;
 public:
@@ -44,6 +45,10 @@ public:
 	string getParName(int);
 	string getParDest(int);
 	string getParDead(int);
+
+	string * getParcelArr(string arr[]);
+
+	void setParcelArray(int, string, string, string, int);
 };
 
 #endif

@@ -45,7 +45,203 @@ void Drone::parcelCounter(string pParcel)
 	parcelCount++;
 }
 
+void Drone::setdName(string str)
+{
+	droneName = str;
+}
+
+void Drone::setdDestination(string str)
+{
+	droneDestination = str;
+}
+
+void Drone::setdDeadline(int i)
+{
+	droneDeadline = i;
+}
+
+void Drone::setdCapacity(int i)
+{
+	droneCapacity = i;
+}
+
+//void Drone::editDroneEntry()
+//{
+//	unsigned int sEntry, eEntry;
+//	readDroneFile();
+//
+//	ofstream new_file;
+//	new_file.open("ADDs.txt");
+//
+//	if (new_file.is_open())
+//		cout << endl << "   Name\t\tDestination\tDeadline" << endl;		//header after the file is read
+//
+//	//for (int i = 0; i < droneValue; i++)
+//	//{
+//	//	setDroArr(i, getdName(i) + "\t" + getdDestination(i) + "\t\t" + getdDeadline(i) + "\n");		//printing details
+//	//	cout << i + 1 << ": " << getDroArr(i);		//number for the details to select and option
+//	//}
+//
+//	cout << endl << "Select entry to modify: ";
+//	cin >> sEntry;		//input option to edit
+//
+//	cout << endl << "1 - Name | 2 - Destination | 3 - Deadline" << endl;
+//	cout << "Select field to change: ";
+//	cin >> eEntry;		//input detail to edit
+//
+//	string temp;
+//
+//	switch (eEntry)
+//	{
+//	case 1:
+//		cout << "Enter new Name: ";
+//		cin >> temp;
+//		setdName(sEntry, temp);		//editing the name
+//		break;
+//	case 2:
+//		cout << "Enter new Destination: ";
+//		cin >> temp;
+//		setdDestination(sEntry, temp);		//editing the destination
+//		break;
+//	case 3:
+//		cout << "Enter new Deadline: ";
+//		cin >> temp;
+//		setdDeadline(sEntry, temp);			//editing the deadline
+//		break;
+//	default:
+//		cout << "Error encountered. Please enter another option.";
+//	}
+//
+//	for (int i = 0; i < droneValue; i++)
+//	{
+//		if (i > 0)		//print next line after line 0
+//			new_file << "\n";
+//
+//		new_file << getdName(i) << "," << getdDestination(i) << "," << getdDeadline(i);
+//	}
+//
+//	cout << endl << "Entry modified successfully" << endl;
+//	//rename("ADDs.txt", "ADDs.txt");
+//
+//	new_file.close();
+//}
+
 #endif
+
+/*
+void Drone::setdName(int index, string str)
+{
+	dName[index] = str;
+}
+
+void Drone::setdDestination(int index, string str)
+{
+	dDestination[index] = str;
+}
+
+void Drone::setdDeadline(int index, string str)
+{
+	dDeadline[index] = str;
+}
+
+void Drone::setdCapacity(int index, string str)
+{
+	dCapacity[index] = str;
+}
+
+void Drone::editDroneEntry()
+{
+	unsigned int sEntry, eEntry;
+	readDroneFile();
+
+	ofstream new_file;
+	new_file.open("ADDs.txt");
+
+	if (new_file.is_open())
+		cout << endl << "   Name\t\tDestination\tDeadline" << endl;		//header after the file is read
+
+	for (int i = 0; i < droneValue; i++)
+	{
+		setDroArr(i, getdName(i) + "\t" + getdDestination(i) + "\t\t" + getdDeadline(i) + "\n");		//printing details
+		cout << i + 1 << ": " << getDroArr(i);		//number for the details to select and option
+	}
+
+	cout << endl << "Select entry to modify: ";
+	cin >> sEntry;		//input option to edit
+
+	cout << endl << "1 - Name | 2 - Destination | 3 - Deadline" << endl;
+	cout << "Select field to change: ";
+	cin >> eEntry;		//input detail to edit
+
+	string temp;
+
+	switch (eEntry)
+	{
+	case 1:
+		cout << "Enter new Name: ";
+		cin >> temp;
+		setdName(sEntry, temp);		//editing the name
+		break;
+	case 2:
+		cout << "Enter new Destination: ";
+		cin >> temp;
+		setdDestination(sEntry, temp);		//editing the destination
+		break;
+	case 3:
+		cout << "Enter new Deadline: ";
+		cin >> temp;
+		setdDeadline(sEntry, temp);			//editing the deadline
+		break;
+	default:
+		cout << "Error encountered. Please enter another option.";
+	}
+
+	for (int i = 0; i < droneValue; i++)
+	{
+		if (i > 0)		//print next line after line 0
+			new_file << "\n";
+
+		new_file << getdName(i) << "," << getdDestination(i) << "," << getdDeadline(i);
+	}
+
+	cout << endl << "Entry modified successfully" << endl;
+	//rename("ADDs.txt", "ADDs.txt");
+
+	new_file.close();
+}
+
+void Drone::readDroneFile()
+{
+
+	ifstream schedule_file;
+
+	if (schedule_file.is_open())
+		cout << "Error reading file" << endl;
+
+	schedule_file.open("ADDs.txt");
+	//rename("ADDs.txt", "ADDs.txt");
+
+	string tempName, tempCap, tempDest, tempDead;
+
+	while (!schedule_file.eof())
+	{
+		getline(schedule_file, tempName, ' ');		//read the name and breaks at the comma
+		getline(schedule_file, tempCap, ' ');		//read the capacity and breaks at the comma
+		getline(schedule_file, tempDest, ' ');		//read the destination and breaks at the comma
+		getline(schedule_file, tempDead);			//read the deadline
+		setdName(droneValue, tempName);
+		setdCapacity(droneValue, tempCap);
+		setdDestination(droneValue, tempDest);
+		setdDeadline(droneValue, tempDead);
+
+		droneValue++;
+	}
+
+	schedule_file.close();
+}
+
+#endif
+*/
 
 
 /*

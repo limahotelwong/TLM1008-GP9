@@ -34,6 +34,13 @@ public:
 	int getDroneDeadline();
 	int getParcelCount();
 	void parcelCounter(string);
+	void readDroneFile();
+	void editDroneEntry();
+
+	void setdName(string);
+	void setdDestination(string);
+	void setdDeadline(int);
+	void setdCapacity(int);
 };
 
 #endif

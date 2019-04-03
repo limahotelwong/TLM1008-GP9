@@ -18,7 +18,8 @@ using namespace std;
 #include "Schedule.h"
 
 void welcome(void);
-void readTextFile(unsigned int); //1 for parcel 2 for add
+void readTextFile();
+void printTextFile(unsigned int);
 
 vector<string> notFull{ };
 vector<string> Full{ };
@@ -122,24 +123,18 @@ int main(void)
 			cout << "Enter Option: ";
 			cin >> sortD;
 
-			cout << "hi";
-			for (int i = 0; i < add.size(); ++i)
-			{
-				cout << "HI!!!" << add[i].getDroneName() << "\t" << add[i].getDroneCapacity() << "\t\t" << add[i].getDroneDestination() << "\t\t" << add[i].getDroneDeadline() << endl;
-			}
-
-
 			if (sortD == 1)
 			{
 				cout << endl << "Name\tCapacity\tDestination\tDeadline" << endl;		//header for the input
 				cout << "-------------------------------------------------------" << endl;
 				for (int i = 0; i < add.size(); ++i)
 				{
-					cout << add[i].getDroneName() << "\t" << add[i].getDroneCapacity() << "\t\t" << add[i].getDroneDestination() << "\t\t" << add[i].getDroneDeadline() << endl;
+				//	cout << add[i].getDroneName() << "\t" << add[i].getDroneCapacity() << "\t\t" << add[i].getDroneDestination() << "\t\t" << add[i].getDroneDeadline() << endl;
+					
 				}
 
 				cout << endl;
-						
+
 			}
 
 			else if (sortD == 2)
@@ -148,11 +143,11 @@ int main(void)
 				cout << "-------------------------------------------------------" << endl;
 				for (int i = 0; i < add.size(); ++i)
 				{
-					cout << add[i].getDroneCapacity() << "\t\t" << add[i].getDroneName() << "\t" << add[i].getDroneDestination() << "\t\t" << add[i].getDroneDeadline() << endl;
+				//	cout << add[i].getDroneCapacity() << "\t\t" << add[i].getDroneName() << "\t" << add[i].getDroneDestination() << "\t\t" << add[i].getDroneDeadline() << endl;
 				}
 
 				cout << endl;
-						
+
 			}
 
 			else if (sortD == 3)
@@ -161,11 +156,11 @@ int main(void)
 				cout << "-------------------------------------------------------" << endl;
 				for (int i = 0; i < add.size(); ++i)
 				{
-					cout << add[i].getDroneDestination() << "\t\t" << add[i].getDroneName() << "\t" << add[i].getDroneCapacity() << "\t\t" << add[i].getDroneDeadline() << endl;
+				//	cout << add[i].getDroneDestination() << "\t\t" << add[i].getDroneName() << "\t" << add[i].getDroneCapacity() << "\t\t" << add[i].getDroneDeadline() << endl;
 				}
 
 				cout << endl;
-						
+
 			}
 
 			else if (sortD == 4)
@@ -174,80 +169,52 @@ int main(void)
 				cout << "-------------------------------------------------------" << endl;
 				for (int i = 0; i < add.size(); ++i)
 				{
-					cout << add[i].getDroneDeadline() << "\t\t" << add[i].getDroneName() << "\t" << add[i].getDroneCapacity() << "\t\t" << add[i].getDroneDestination() << endl;
+				//	cout << add[i].getDroneDeadline() << "\t\t" << add[i].getDroneName() << "\t" << add[i].getDroneCapacity() << "\t\t" << add[i].getDroneDestination() << endl;
 				}
 
 				cout << endl;
-						
+
 			}
 
 			else
 			{
 				cout << endl << "Invalid option. Please try again." << endl << endl;
-						
+
 			}
 
 			break;
 
 		case 2:
-
-			readTextFile(1);
+		{
+			readTextFile();
 			unsigned int sortP;
 			cout << endl << "Display all Parcel information" << endl;
 			cout << "1 - Sort by Name | 2 - Sort by Destination | 3 - Sort by Deadline" << endl;
 			cout << "Enter Option: ";
 			cin >> sortP;
 
-			if (sortP == 1)
-			{
-				cout << endl << "Name\t\tDestination\tDeadline" << endl;		//header for the input
-				cout << "---------------------------------------------" << endl;
-			//	for (int i = 0; i < package.size(); ++i)
-				for (int i = 0; i < printIndex; i++)
-				{
-				//	cout << package[i].getParcelName() << "\t" << package[i].getParcelDestination() << "\t\t" << package[i].getParcelDeadline() << endl;
-					cout << parcel.getParName(i) << "\t" << parcel.getParDest(i) << "\t\t" << parcel.getParDead(i) << endl;
-				}
+		//	printTextFile(sortP);
+			string parcelArray[999];
 
-				cout << endl;
-						
+			for (int i = 0; i < printIndex; i++)
+			{
+				if (sortP == 1)
+					parcelArray[i] = parcel.getParName(i) + '\t' + parcel.getParDest(i) + '\t' + parcel.getParDead(i) + "\n";
+				else if (sortP == 2)
+					parcelArray[i] = parcel.getParDest(i) + '\t' + parcel.getParName(i) + '\t' + parcel.getParDead(i) + "\n";
+				else if (sortP == 3)
+					parcelArray[i] = parcel.getParDead(i) + '\t' + parcel.getParName(i) + '\t' + parcel.getParDest(i) + "\n";
+				else
+					parcelArray[i] = parcel.getParName(i) + '\t' + parcel.getParDest(i) + '\t' + parcel.getParDead(i) + "\n";
 			}
 
-			else if (sortP == 2)
-			{
-				cout << endl << "Destination\tName\t\tDeadline" << endl;		//header for the input
-				cout << "---------------------------------------------" << endl;
-			//	for (int i = 0; i < package.size(); ++i)
-				for (int i = 0; i < printIndex; i++)
-				{
-				//	cout << package[i].getParcelDestination() << "\t\t" << package[i].getParcelName() << "\t" << package[i].getParcelDeadline() << endl;
-					cout << parcel.getParDest(i) << "\t\t" << parcel.getParName(i) << "\t" << parcel.getParDead(i) << endl;
-				}
 
-				cout << endl;
-						
-			}
 
-			else if (sortP == 3)
-			{
-				cout << endl << "Deadline\tName\t\tDestination" << endl;		//header for the input
-				cout << "---------------------------------------------" << endl;
-			//	for (int i = 0; i < package.size(); ++i)
-				for (int i = 0; i < printIndex; i++)
-				{
-				//	cout << package[i].getParcelDeadline() << "\t\t" << package[i].getParcelName() << "\t" << package[i].getParcelDestination() << endl;
-					cout << parcel.getParDead(i) << "\t\t" << parcel.getParName(i) << "\t" << parcel.getParDest(i) << endl;
-				}
+			vector<string> myVector(parcelArray, parcelArray + 999);
 
-				cout << endl;
-						
-			}
-
-			else
-			{
-				cout << endl << "Invalid option. Please try again." << endl << endl;
-						
-			}
+			std::sort(myVector.begin(), myVector.end());
+			std::copy(myVector.begin(), myVector.end(), ostream_iterator<string>(cout, ""));
+		}
 
 			break;
 		case 3:
@@ -664,7 +631,6 @@ int main(void)
 				drone_add.close();
 
 				cout << endl;
-				//main();		
 			}
 
 			else if (optionD == 2)
@@ -698,33 +664,98 @@ int main(void)
 
 				for (int i = 0; i < add.size(); i++)
 				{
-					drone_delete << add[i].getDroneName() << " " << add[i].getDroneCapacity() << " " << add[i].getDroneDestination() << " " << add[i].getDroneDeadline() << endl;
+					drone_delete << add[i].getDroneName() << ' ' << add[i].getDroneCapacity() << ' ' << add[i].getDroneDestination() << ' ' << add[i].getDroneDeadline() << endl;
 				}
 
 				cout << endl << "Entry deleted successfully." << endl;
 				//rename("ADDs.txt", "ADDs.txt");
 				drone_delete.close();
 
-				cout << endl;
-				//main();		
+				cout << endl;	
 			}
 
 			else if (optionD == 3)
 			{
-				//add.editDroneEntry();
-				cout << endl;
-				//main();		
+				int sEntry, eEntry;
+				string  dTemp;
+				int intTemp;
+
+				ofstream drone_edit;
+				drone_edit.open("ADDs.txt");
+
+				for (int i = 0; i < add.size(); ++i)
+				{
+					cout << i + 1 << ": " << add[i].getDroneName() << "\t" << add[i].getDroneCapacity() << "\t\t" << add[i].getDroneDestination() << "\t\t" << add[i].getDroneDeadline() << endl;
+				}
+				cout << endl;	
+
+				cout << endl << "Enter drone index to edit: ";
+				cin >> eEntry;		//input option to edit
+
+				cout << endl << "1 - Name | 2 - Capacity | 3 - Destination | 4 - Deadline" << endl;
+				cout << "Select field to change: ";
+				cin >> sEntry;		//input detail to edit
+
+				switch (sEntry)
+				{
+				case 1:
+					cout << "Enter new Name: ";
+					cin >> dTemp;
+					add[eEntry - 1].setdName(dTemp);	//editing the name
+					break;
+
+				case 2:
+					cout << "Enter new Capacity: ";
+					cin >> intTemp;
+					add[eEntry - 1].setdCapacity(intTemp);//editing the destination		
+					break;
+
+				case 3:
+					cout << "Enter new Destination: ";
+					cin >> dTemp;
+					add[eEntry - 1].setdDestination(dTemp);	//editing the deadline		
+					break;
+
+				case 4:
+					cout << "Enter new Deadline: ";
+					cin >> intTemp;
+					add[eEntry - 1].setdDeadline(intTemp);	//editing the deadline
+
+				default:
+					cout << "Error encountered. Please enter another option.";
+				}
+
+				for (int i = 0; i < add.size(); i++)
+				{
+					if (i > 0)	//print next line after line0
+						drone_edit << "\n";
+
+					drone_edit << add[i].getDroneName() << " " << add[i].getDroneCapacity() << " " << add[i].getDroneDestination() << " " << add[i].getDroneDeadline();
+				}
+
+				cout << "Entry modified successfully" << endl;
+				//	std::rename("schedule_new.txt", "schedule.txt");
+
+				drone_edit.close();
+
+				printTextFile(1);
+
+				cout << endl << "Entry edited successfully." << endl;
+				//rename("parcels.txt", "parcels.txt");
+				drone_edit.close();
+
 			}
 
 			else
 			{
-				cout << endl << "Invalid option. Please try again." << endl << endl;
-				//main();		
+				cout << endl << "Invalid option. Please try again." << endl << endl;		
 			}
 
 			break;
 		
 		case 10:
+			readTextFile();
+			
 			unsigned int optionP;
 
 			cout << endl << "Add/Delete/Edit parcel" << endl;
@@ -750,8 +781,8 @@ int main(void)
 				if (parcel_add.is_open())
 					cout << "Error encountered. Please try again." << endl;
 
-				parcel_add.open("parcels.txt", ios::app);
-				parcel_add << "\n" << name << " " << destination << " " << to_string(deadline);		//writing in the input
+				parcel_add.open("parcel.txt", ios::app);
+				parcel_add << "\n" << name << "," << destination << "," << to_string(deadline);		//writing in the input
 
 				cout << endl << "Entry recorded successfully." << endl;
 
@@ -763,50 +794,45 @@ int main(void)
 
 			else if (optionP == 2)
 			{
+				printTextFile(1);
 				ofstream parcel_delete;
-				parcel_delete.open("parcels.txt");
+				parcel_delete.open("parcel.txt");
+
+				unsigned int del;
 
 				if (parcel_delete.is_open())
 				{
 					cout << endl << "Name\tDestination\tDeadline" << endl;		//header after the file is read
 					cout << "---------------------------------------------" << endl;
 				}
+				cout << "\n\nSelect entry to delete: ";
+				cin >> del;
 
-				for (int i = 0; i < package.size(); ++i)
+				for (int i = del - 1; i < printIndex; i++)	//shift array elements forward
 				{
-					cout << package[i].getParcelName() << "\t" << package[i].getParcelDestination() << "\t\t" << package[i].getParcelDeadline() << endl;
+					parcel.setParName(i, parcel.getParName(i + 1));
+					parcel.setParDest(i, parcel.getParDest(i + 1));
+					parcel.setParDead(i, parcel.getParDead(i + 1));
 				}
 
-				string dEntry;
-
-				cout << endl << "Enter parcel Name to delete: ";
-				cin >> dEntry;		//input option to delete
-
-				for (int i = 0; i < package.size(); i++)
+				for (int i = 0; i < printIndex - 1; i++)
 				{
-					if (package[i].getParcelName() == dEntry)		//finding the matching name to delete
-					{
-						package.erase(package.begin() + i);
-					}
+					if (i > 0)	//print next line after line0
+						parcel_delete << "\n";
+
+					parcel_delete << parcel.getParName(i) << " " << parcel.getParDest(i) << " " << parcel.getParDead(i);
 				}
 
-				for (int i = 0; i < package.size(); i++)
-				{
-					parcel_delete << package[i].getParcelName() << " " << package[i].getParcelDestination() << " " << package[i].getParcelDeadline() << endl;
-				}
-
-				cout << endl << "Entry deleted successfully." << endl;
-				//rename("parcels.txt", "parcels.txt");
+				cout << "Entry deleted successfully" << endl;
 				parcel_delete.close();
-
-				cout << endl;
-				//main();		
+	
 			}
 
 			else if (optionP == 3)
 			{
+				printTextFile(1);
 				ofstream parcel_edit;
-				parcel_edit.open("parcels.txt");
+				parcel_edit.open("parcel.txt");
 
 				if (parcel_edit.is_open())
 				{
@@ -814,23 +840,13 @@ int main(void)
 					cout << "---------------------------------------------" << endl;
 				}
 
-				for (int i = 0; i < package.size(); ++i)
-				{
-					cout << package[i].getParcelName() << "\t" << package[i].getParcelDestination() << "\t\t" << package[i].getParcelDeadline() << endl;
-				}
-
-				string eEntry;
-				int sEntry;
-				string editPName, editPDestination;
+				int sEntry, eEntry;
+				string  temp;
 				int editPDeadline;
 
-				cout << endl << "Enter parcel Name to edit: ";
+				cout << endl << "Enter parcel index to edit: ";
 				cin >> eEntry;		//input option to edit
 
-				for (int i = 0; i < package.size(); i++)
-				{
-					if (package[i].getParcelName() == eEntry)		//finding the matching name to edit
-					{
 						cout << endl << "1 - Name | 2 - Destination | 3 - Deadline" << endl;
 						cout << "Select field to change: ";
 						cin >> sEntry;		//input detail to edit
@@ -839,57 +855,60 @@ int main(void)
 						{
 						case 1:
 							cout << "Enter new Name: ";
-							cin >> editPName;
-							package[i].getParcelName() = editPName;		//editing the name
+							cin >> temp;
+							parcel.setParName(eEntry - 1, temp);	//editing the name
+						//	package[i].getParcelName() = editPName;		
 							break;
 
 						case 2:
 							cout << "Enter new Destination: ";
-							cin >> editPDestination;
-							package[i].getParcelDestination() = editPDestination;		//editing the destination
+							cin >> temp;
+							parcel.setParDest(eEntry - 1, temp);	//editing the destination
+						//	package[i].getParcelDestination() = editPDestination;		
 							break;
 
 						case 3:
 							cout << "Enter new Deadline: ";
-							cin >> editPDeadline;
-							//package[i].getParcelDeadline() = editPDeadline;			//editing the deadline
+							cin >> temp;
+							parcel.setParDead(eEntry - 1, temp);	//editing the deadline
+						//	package[i].getParcelDeadline() = editPDeadline;			
 							break;
 
 						default:
 							cout << "Error encountered. Please enter another option.";
 						}
 
-						//package.erase(package.begin() + i);
-					}
-				}
+						for (int i = 0; i < printIndex; i++)
+						{
+							if (i > 0)	//print next line after line0
+								parcel_edit << "\n";
 
-				for (int i = 0; i < package.size(); i++)
-				{
-					parcel_edit << package[i].getParcelName() << " " << package[i].getParcelDestination() << " " << package[i].getParcelDeadline() << endl;
-				}
+							parcel_edit << parcel.getParName(i) << " " << parcel.getParDest(i) << " " << parcel.getParDead(i);
+						}
+
+						cout << "Entry modified successfully" << endl;
+						//	std::rename("schedule_new.txt", "schedule.txt");
+
+						parcel_edit.close();
+
+				printTextFile(1);
 
 				cout << endl << "Entry edited successfully." << endl;
 				//rename("parcels.txt", "parcels.txt");
 				parcel_edit.close();
 
-				cout << endl;
-				//main();		
+				cout << endl;		
 			}
 
 			else
 			{
-				cout << endl << "Invalid option. Please try again." << endl << endl;
-				//main();		
+				cout << endl << "Invalid option. Please try again." << endl << endl;	
 			}
 
 			break;
 		
 		default: 
 			cout << endl << "Error encountered. Please enter another option." << endl << endl;
-			break;
-			
-			
-		
 		}
 		menu();
 	}
@@ -901,65 +920,82 @@ int main(void)
 	cout << "        BBBBBB       Y      EEEEEE          BBBBBB       Y      EEEEEE           " << endl;
 }
 
-void readTextFile(unsigned int a)
+void readTextFile()
 {
 	printIndex = 0;
-	int printOpt = 1;
 	string temp;
 	ifstream text_file;
 
+	text_file.open("parcel.txt");
 
 	if (text_file.is_open())
-		cout << "Error reading file" << endl;
-
-	switch (printOpt)
-	{
-	case 1:
-		
-		text_file.open("parcel.txt");
-	//	rename("parcel.txt", "parcel.txt");
+		cout << "" << endl;
 
 		while (!text_file.eof())
 		{
-			getline(text_file, temp, ',');	//read the name and breaks at the comma
+			getline(text_file, temp, ' ');	//read the name and breaks at the comma
 			parcel.setParName(printIndex, temp);
-			getline(text_file, temp, ',');	//read the destination and breaks at the comma
+			getline(text_file, temp, ' ');	//read the destination and breaks at the comma
 			parcel.setParDest(printIndex, temp);
 			getline(text_file, temp);		//read the deadline
 			parcel.setParDead(printIndex, temp);
 			printIndex++;		
 		}
-		break;
-
-	case 2:
-		while (!text_file.eof())
-		{
-			getline(text_file, temp, ',');	//read the name and breaks at the comma
-			parcel.setParName(printIndex, temp);
-		//	package[printIndex] = temp;
-			getline(text_file, temp, ',');	//read the destination and breaks at the comma
-			parcel.setParDest(printIndex, temp);
-			getline(text_file, temp, ',');	
-		//	parcel.setParDest(printIndex, temp);
-		//	getline(text_file, temp);		//read the deadline
-			parcel.setParDest(printIndex, temp);
-			printIndex++;
-		}
-		break;
-	default:
-		cout << "Check argument";
-	}
-
-	while (!text_file.eof())
-	{
-	//	getline(text_file, pName[parcelValue], ',');		//read the name and breaks at the comma
-	//	getline(text_file, pDestination[parcelValue], ',');		//read the destination and breaks at the comma
-	//	getline(text_file, pDeadline[parcelValue]);		//read the deadline
-	//	parcelValue++;
-	}
 
 	text_file.close();
+}
 
+void printTextFile(unsigned int sortP)
+{
+	if (sortP == 1)
+	{
+		cout << endl << "Name\t\tDestination\tDeadline" << endl;		//header for the input
+		cout << "---------------------------------------------" << endl;
+		//	for (int i = 0; i < package.size(); ++i)
+		for (int i = 0; i < printIndex; i++)
+		{
+			//	cout << package[i].getParcelName() << "\t" << package[i].getParcelDestination() << "\t\t" << package[i].getParcelDeadline() << endl;
+			cout << i + 1 << ": " << parcel.getParName(i) << "\t" << parcel.getParDest(i) << "\t\t" << parcel.getParDead(i) << endl;
+		}
+
+		cout << endl;
+
+	}
+
+	else if (sortP == 2)
+	{
+		cout << endl << "Destination\tName\t\tDeadline" << endl;		//header for the input
+		cout << "---------------------------------------------" << endl;
+		//	for (int i = 0; i < package.size(); ++i)
+		for (int i = 0; i < printIndex; i++)
+		{
+			//	cout << package[i].getParcelDestination() << "\t\t" << package[i].getParcelName() << "\t" << package[i].getParcelDeadline() << endl;
+			cout << i << ": " << parcel.getParDest(i) << "\t\t" << parcel.getParName(i) << "\t" << parcel.getParDead(i) << endl;
+		}
+
+		cout << endl;
+
+	}
+
+	else if (sortP == 3)
+	{
+		cout << endl << "Deadline\tName\t\tDestination" << endl;		//header for the input
+		cout << "---------------------------------------------" << endl;
+		//	for (int i = 0; i < package.size(); ++i)
+		for (int i = 0; i < printIndex; i++)
+		{
+			//	cout << package[i].getParcelDeadline() << "\t\t" << package[i].getParcelName() << "\t" << package[i].getParcelDestination() << endl;
+			cout << i << ": " << parcel.getParDead(i) << "\t\t" << parcel.getParName(i) << "\t" << parcel.getParDest(i) << endl;
+		}
+
+		cout << endl;
+
+	}
+
+	else
+	{
+		cout << endl << "Invalid option. Please try again." << endl << endl;
+	}
 }
 
 //put readfile in main
