@@ -21,21 +21,21 @@ using namespace std;
 class Parcel
 {
 private:
+	string nameParcel;
+	string destinationParcel;
+	int deadlineParcel;
 	string parcelName[999];
 	string parcelDest[999];
 	string parcelDead[999];
+	string parcelArr[999];
+
 	vector<string> parVect{};
-	int parcelDeadline;
 public:
 	Parcel();
 	Parcel(string, string, int);
-	string getParcelName();
-	string getParcelDestination();
-	string getParcelDeadline();
-	void displayParcelContent(unsigned int);
-	void insertParcelEntry();
-	void editParcelEntry();
-	void deleteParcelEntry();
+	string getNameParcel();
+	string getDestinationParcel();
+	int getDeadlineParcel();
 	
 	void setParName(int, string);
 	void setParDest(int, string);
@@ -44,69 +44,10 @@ public:
 	string getParName(int);
 	string getParDest(int);
 	string getParDead(int);
+
+	string * getParcelArr(string arr[]);
+
+	void setParcelArray(int, string, string, string, int);
 };
 
 #endif
-
-/*
-#ifndef PARCEL_H
-#define PARCEL_H
-
-
-
-#include <iostream>
-#include <istream>
-#include <ostream>
-#include <fstream>
-#include <algorithm>
-#include <array>
-#include <cstdio>
-#include <filesystem>
-#include <functional>
-#include <string>
-#include <vector>
-using namespace std;
-
-class Parcel
-{
-public:
-	string name;
-	Parcel();
-	~Parcel();
-	void displayParcelContent(unsigned int);
-	void insertParcelEntry();
-	void editParcelEntry();
-	void deleteParcelEntry();
-};
-*/
-
-//#endif
-
-//anything 
-/*
-
-
-#pragma once
-
-
-
-
-class Parcel
-{
-private:
-	string parcelName;
-	string parcelDestination;
-	int parcelDeadline;
-public:
-	Parcel(string, string, int);
-	string getParcelName();
-	string getParcelDestination();
-	int getParcelDeadline();
-	void displayParcelContent(unsigned int);
-	void insertParcelEntry();
-	void editParcelEntry();
-	void deleteParcelEntry();
-};
-
-#endif
-*/
